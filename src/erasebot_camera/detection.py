@@ -5,7 +5,7 @@ coordinates (x_min, y_min, x_max, y_max) with exclusive upper bounds.
 No robot motions or calibration are performed here.
 """
 
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass, field
 from typing import Any, Optional, Sequence
 
 import cv2
@@ -50,9 +50,15 @@ class InspectionResult:
 
     def to_dict(self) -> dict[str, Any]:
         """JSON-compatible summary; pixel mask is deliberately not serialized."""
-        payload = asdict(self)
-        payload.pop("residual_mask", None)
-        return payload
+        return {
+            "status": self.status,
+            "residual_ratio": self.residual_ratio,
+            "original_pixels": self.original_pixels,
+            "residual_pixels": self.residual_pixels,
+            "residual_regions": self.residual_regions,
+            "reason": self.reason,
+            "brightness_shift": self.brightness_shift,
+        }
 
 
 def _validate_images(empty: np.ndarray, drawn: np.ndarray, erased: np.ndarray) -> None:
