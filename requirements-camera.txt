@@ -1,0 +1,4 @@
+numpy>=1.24,<3
+opencv-python>=4.8,<5
+# On the lab machine only (Ubuntu + D435): pip install pyrealsense2
+# Unit tests: pip install pytest
