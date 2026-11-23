@@ -1,5 +1,7 @@
 # Camera module — fixed-pose EraseBot Basic
 
+**ROS 2 version:** See [camera_ros2.md](camera_ros2.md). The direct pyrealsense2 capture example below is an alternative only; do not run it at the same time as the RealSense ROS 2 driver.
+
 ## Scope and assumptions
 
 - RealSense D435 mounted eye-in-hand beside FR3 gripper; whiteboard stays horizontal and fixed.

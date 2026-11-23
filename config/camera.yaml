@@ -1,0 +1,8 @@
+erasebot_camera:
+  ros__parameters:
+    # Check with: ros2 topic list | grep color/image_raw
+    image_topic: /camera/camera/color/image_raw
+    output_dir: ~/erasebot_camera_output
+    snapshot_timeout_sec: 3.0
+    roi: [-1, -1, -1, -1]
+    expected_mask_path: ''
